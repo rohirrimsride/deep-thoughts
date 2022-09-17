@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import auth from '../../utils/auth';
+
+import Auth from '../../utils/auth';
 
 const Header = () => {
   const logout = event => {
     event.preventDefault();
-    auth.logout();
+    Auth.logout();
   };
 
   return (
@@ -14,8 +15,9 @@ const Header = () => {
         <Link to="/">
           <h1>Deep Thoughts</h1>
         </Link>
+
         <nav className="text-center">
-          {auth.loggedIn() ? (
+          {Auth.loggedIn() ? (
             <>
               <Link to="/profile">Me</Link>
               <a href="/" onClick={logout}>
